@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - ".github/workflows/build-arm64-image.yml"
+      - "mdm-patch/**"
   workflow_dispatch:
 
 permissions:
@@ -15,11 +16,20 @@ jobs:
     runs-on: ubuntu-24.04-arm
     timeout-minutes: 240
     steps:
+      - name: My repo (the changes)
+        uses: actions/checkout@v4
+        with:
+          path: patch
+
       - name: Upstream code
         uses: actions/checkout@v4
         with:
           repository: anefzaoui/misterdownloadmanager
-          ref: main
+          ref: 7b4766f5c7f00a5a50a33cdcbcce3271ce852ea3
+          path: upstream
+
+      - name: Add speed limit and the new page
+        run: python3 patch/mdm-patch/apply.py upstream
 
       - name: Image name (lowercase)
         run: echo "IMAGE=ghcr.io/${GITHUB_REPOSITORY_OWNER,,}/misterdownloadmanager" >> "$GITHUB_ENV"
@@ -34,7 +44,7 @@ jobs:
 
       - uses: docker/build-push-action@v6
         with:
-          context: .
+          context: ./upstream
           platforms: linux/arm64
           push: true
           tags: ${{ env.IMAGE }}:latest
