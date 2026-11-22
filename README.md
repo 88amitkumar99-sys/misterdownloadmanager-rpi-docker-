@@ -49,8 +49,6 @@ services:
 - Choose a folder inside a mounted volume, or the files are lost when the container is recreated.
 - Check the USB drive is mounted before starting the container: `df -h /mnt/usb`.
 - Forgot the password? Delete `/opt/mdm-config/remote/password.json`, then open the page again.
-- Do not expose port 8463 to the internet.
+.
 
-## License
 
-Mister Download Manager is GPL-3.0-or-later. The changes in `mdm-patch/` are released under the same license.
