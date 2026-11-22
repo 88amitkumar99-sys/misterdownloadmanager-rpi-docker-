@@ -1,4 +1,4 @@
-# Mister Download Manager for Raspberry Pi (Docker)
+# Mister Download Manager for Raspberry Pi (Docker portainer)
 
 A Docker image for running Mister Download Manager on a Raspberry Pi.
 
@@ -9,7 +9,7 @@ Original project: https://github.com/anefzaoui/misterdownloadmanager
 - Raspberry Pi (ARM) with Docker installed
 - A USB drive for downloads
 
-## Run
+## Run portainer Stacks
 
 services:
   mdm:
@@ -23,7 +23,6 @@ services:
       MDM_REMOTE_URL: "https://Host IP :8463/"
     volumes:
       - /opt/mdm-config:/config
-      - /mnt/usb/downloads:/downloads
       - /mnt/usb:/mnt/usb
 
 Replace `<Host_IP>` with your Pi's IP address (for example, `192.168.1.50`).
