@@ -11,20 +11,7 @@ Original project: https://github.com/anefzaoui/misterdownloadmanager
 
 ## Run
 
-```bash
-mkdir -p /opt/mdm-config /mnt/usb/downloads
-
-docker run -d \
-  --name mdm \
-  --restart unless-stopped \
-  --network host \
-  --user 0:0 \
-  -e MDM_REMOTE_PORT=8463 \
-  -e MDM_REMOTE_URL=https://<Host_IP>:8463/ \
-  -v /opt/mdm-config:/config \
-  -v /mnt/usb/ 
-  ghcr.io/88amitkumar99-sys/misterdownloadmanager:latest
-```
+not now 
 
 Replace `<Host_IP>` with your Pi's IP address (for example, `192.168.1.50`).
 
