@@ -49,6 +49,10 @@ services:
 - Choose a folder inside a mounted volume, or the files are lost when the container is recreated.
 - Check the USB drive is mounted before starting the container: `df -h /mnt/usb`.
 - Forgot the password? Delete `/opt/mdm-config/remote/password.json`, then open the page again.
-.
+
+
+<img width="1440" height="731" alt="image" src="https://github.com/user-attachments/assets/20c4ef52-76f8-426d-a821-2af67c54c7af" />
+
+<img width="1440" height="731" alt="image" src="https://github.com/user-attachments/assets/2b2bd6f0-5b7e-4648-9764-125bd1802dba" />
 
 
